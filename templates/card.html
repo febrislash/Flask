@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    </head>
+<body>
+    <a href="{{url_for('index')}}">input anggota</a>
+    <h1>Flash Card Cara Pintar</h1>
+Question: {{card.question}} <br>
+Answer: {{card.answer}}
+<p>
+    <button>
+        {% if index < max_index %}
+        <a href="{{url_for('card_view', index=index + 1) }}">
+            Next Card
+        </a>
+        {% else %}
+        <a href="{{url_for('card_view', index=0) }}">
+            Start Over Card
+        </a>
+        {% endif %}
+    </button>
+</p>
+<button>
+    <a href="{{url_for('remove_card', index=index)}}"> delete card ini </a> 
+</button>
+</body>
+</html>
